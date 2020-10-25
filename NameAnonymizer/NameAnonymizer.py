@@ -19,17 +19,12 @@ def preprocess(text):
         for ne_full_name in ne_person_list: # Replace all full name occurances with a tag 'person' // Change to unique ID
             text = text.replace(ne_full_name, 'PERSON')
 
-    print(text) # Print processed text
     print(ne_person_list) # Print names for DEBUG PURPOSES
 
-text = """
-MACON, Ga. — President Trump held a rally in Georgia on Friday, 18 days before the November general election. It wasn’t a good sign for him.
+    textOutputFile = open(r"C:\Users\roma0\Desktop\Frontrunners\Project\DataSet\outputFile.txt", "w" , encoding ='utf-8')
+    textOutputFile.write(text)
 
-That Mr. Trump is still campaigning in what should be a safely Republican state — and in others that should be solidly in his column like Iowa and Ohio — is evidence to many Democrats that Joseph R. Biden Jr.’s polling lead in the presidential race is solid and durable. Mr. Trump spent Monday in Arizona, too, a state that was once reliably Republican but where his unpopularity has helped make Mr. Biden competitive.
-
-For some Democrats, Mr. Trump’s attention to red states is also a sign of something else — something few in the party want to discuss out loud, given their scars from Mr. Trump’s surprise victory in 2016. It’s an indication that Mr. Biden could pull off a landslide in November, achieving an ambitious and rare electoral blowout that some Democrats think is necessary to quell any doubts — or disputes by Mr. Trump — that Mr. Biden won the election.
-
-On one level, such a scenario is entirely plausible based on the weeks and the breadth of public polls that show Mr. Biden with leads or edges in key states. But this possibility runs headlong into the political difficulties of pulling off such a win, and perhaps even more, the psychological hurdles for Democrats to entertain the idea. Many think that Mr. Trump, having pulled off a stunning win before, could do it again, even if there are differences from 2016 that hurt his chances.
-""" # Sample text
+textInputFile = open(r"C:\Users\roma0\Desktop\Frontrunners\Project\DataSet\inputFile.txt", "r" , encoding='utf-8')
+text = textInputFile.read()
 
 preprocess(text)
