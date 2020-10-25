@@ -24,9 +24,10 @@ def preprocess(text):
 
     print(ne_person_list) # Print names for DEBUG PURPOSES
 
-    newPathOut = os.path.relpath('..\\dataSet\\' + outputFile , curPath)
-    with open(newPathOut, 'w', encoding = 'utf-8') as outputFile:
+    newPathOut = os.path.relpath('..\\dataSet\\' + outputFile , curPath) # Make new relative path to file
+    with open(newPathOut, 'w', encoding = 'utf-8') as outputFile: # Open file
         outputFile.write(text)
+        outputFile.close()
 
 curProjectFile = "NameAnonymizer.sln"
 inputFile = "inputFile.txt"
@@ -35,5 +36,6 @@ curPath = os.path.dirname(curProjectFile) # Point to the current project folder
 newPathIn = os.path.relpath('..\\dataSet\\' + inputFile , curPath)
 with open(newPathIn, 'r', encoding = 'utf-8') as inputFile:
     text = inputFile.read()
+    inputFile.close()
 
 preprocess(text)
