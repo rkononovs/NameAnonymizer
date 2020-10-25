@@ -1,6 +1,9 @@
 import nltk
+import os
 
 def preprocess(text):
+    outputFile = "outputFile.txt"
+
     ne_person = []
     ne_person_list = []
     ne_name = ''
@@ -21,10 +24,16 @@ def preprocess(text):
 
     print(ne_person_list) # Print names for DEBUG PURPOSES
 
-    textOutputFile = open(r"C:\Users\roma0\Desktop\Frontrunners\Project\DataSet\outputFile.txt", "w" , encoding ='utf-8')
-    textOutputFile.write(text)
+    newPathOut = os.path.relpath('..\\dataSet\\' + outputFile , curPath)
+    with open(newPathOut, 'w', encoding = 'utf-8') as outputFile:
+        outputFile.write(text)
 
-textInputFile = open(r"C:\Users\roma0\Desktop\Frontrunners\Project\DataSet\inputFile.txt", "r" , encoding='utf-8')
-text = textInputFile.read()
+curProjectFile = "NameAnonymizer.sln"
+inputFile = "inputFile.txt"
+curPath = os.path.dirname(curProjectFile) # Point to the current project folder
+
+newPathIn = os.path.relpath('..\\dataSet\\' + inputFile , curPath)
+with open(newPathIn, 'r', encoding = 'utf-8') as inputFile:
+    text = inputFile.read()
 
 preprocess(text)
