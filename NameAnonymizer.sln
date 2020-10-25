@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30503.244
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "NameAnonymizer", "NameAnonymizer\NameAnonymizer.pyproj", "{CC9EC0EA-9165-44E3-A3C5-4373886D8B35}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CC9EC0EA-9165-44E3-A3C5-4373886D8B35}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC9EC0EA-9165-44E3-A3C5-4373886D8B35}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CCCE78F5-3108-4CC9-AA6E-B6B2AF541929}
+	EndGlobalSection
+EndGlobal
