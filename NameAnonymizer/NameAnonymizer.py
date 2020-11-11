@@ -12,11 +12,10 @@ os.environ["CORENLP_HOME"]="C:/Users/roma0/stanford-corenlp-4.1.0" # Point to th
 def preprocess(text):
     outputFile = "outputFile" + fileExtension # Define a output file with extension
 
-    ne_person = []
-    ne_person_test = []
-    ne_person_list = []
-    ne_name = ''
-    id = 0
+    #ne_person = []
+    #ne_person_test = []
+    #ne_person_list = []
+    #ne_name = ''
 
     # Make Coreference chain which I can use to compare elements in text
     with CoreNLPClient(
@@ -57,27 +56,10 @@ def preprocess(text):
             unique_name_tag = 'PERSON' + '_' + str(unique_id[temp_id])
             text = text.replace(name, unique_name_tag)
         temp_id += 1
-    
-    print(text)
-    ne_tree = nltk.ne_chunk(nltk.pos_tag(nltk.word_tokenize(text))) # Chunk, tokenize and label text
-    #ne_tree.draw()
 
-    for subtree in ne_tree.subtrees(filter=lambda t: t.label() == 'PERSON'): # Filter every instance of the named entity with tag PERSON
-        for leaf in subtree.leaves():
-            ne_person.append(leaf[0]) # Append part of full name with title
-            # print (ne_person)
-        for part in ne_person:
-            ne_name += part + ' ' # Add part of persons name to complete it
-        if ne_name[:-1] not in ne_person_list:
-            ne_person_list.append(ne_name[:-1]) # Append full name to person list
-            
-            #print (ne_name)
-        ne_name = ''
-        ne_person = []
-        for ne_full_name in ne_person_list: # Replace all full name occurances with a tag 'person' // Change to unique ID
-            text = text.replace(ne_full_name, 'PERSON')
 
-    #print(ne_person_list) # Print names for DEBUG PURPOSES
+    for chain in mychains:
+        print(' <-> '.join(chain))
 
     newPathOut = os.path.relpath('..\\dataSet\\' + outputFile , curPath) # Make new relative path to file
     if fileExtension == ".txt":
@@ -91,7 +73,7 @@ def preprocess(text):
 
 
 text = ""
-fileExtension = ".docx" #.csv ?.excel?
+fileExtension = ".txt" #.csv ?.excel?
 curProjectFile = "NameAnonymizer.sln"
 inputFile = "inputFile" + fileExtension
 curPath = os.path.dirname(curProjectFile) # Point to the current project folder
