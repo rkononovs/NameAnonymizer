@@ -12,6 +12,7 @@
     <OutputPath>.</OutputPath>
     <Name>NameAnonymizer</Name>
     <RootNamespace>PythonTest</RootNamespace>
+    <IsWindowsApplication>False</IsWindowsApplication>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>

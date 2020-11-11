@@ -1,0 +1,6 @@
+annotators = coref
+
+coref.algorithm = statistical
+
+outputFormat = serialized
+
